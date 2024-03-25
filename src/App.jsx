@@ -6,21 +6,21 @@ import './App.css'
 function App() {
 
   const storageKeyName = "count";
-  const retrieveCountValue = () => Number(localStorage.getItem(storageKeyName));
+  const retrieveCountValue = () => Number(localStorage.getItem(storageKeyName) | 0);
 
   const [count, setCount] = useState(retrieveCountValue);
 
   const addCount = (count) => setCount(Number(count) + 1);
 
   useEffect( () => {
-    localStorage.getItem(count);
+    localStorage.setItem("count", String(count));
   }, [count]);
   return (
     
       <div classname="App">
         Hello World
 
-<button onClick={() => setCount((count) => count + 1)}>
+<button onClick={() => addCount(count)}>
 Count is {count}
 </button>
 
