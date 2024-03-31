@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import styled from "styled-components";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
   const addCount = (count) => setCount(Number(count) + 1);
 
   useEffect( () => {
-    localStorage.setItem("count", String(count));
+    localStorage.setItem(storageKeyName, String(count));
   }, [count]);
   return (
     
