@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { MainApp } from './styled';
 import styled from "styled-components";
 
 function App() {
@@ -11,21 +9,21 @@ function App() {
 
   const [count, setCount] = useState(retrieveCountValue);
 
-  const addCount = (count) => setCount(Number(count) + 1);
+  const addNumber = (count) => setCount(Number(count) + 1);
 
   useEffect( () => {
     localStorage.setItem(storageKeyName, String(count));
   }, [count]);
   return (
     
-      <div classname="App">
-        Hello World
+      <MainApp>
+        Count Me
 
-<button onClick={() => addCount(count)}>
+<button onClick={() => addNumber(count)}>
 Count is {count}
 </button>
 
-    </div>
+    </MainApp>
   
   )
 }
